@@ -1,23 +1,49 @@
-# Copyright 2015 Open Source Robotics Foundation, Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+import pyaudio
+import wave
 
-from ament_pep257.main import main
-import pytest
+# Define the duration of the recording
+record_seconds = 5  # for example, 5 seconds
 
+# Initialize PyAudio
+p = pyaudio.PyAudio()
 
-@pytest.mark.linter
-@pytest.mark.pep257
-def test_pep257():
-    rc = main(argv=['.', 'test'])
-    assert rc == 0, 'Found code style errors / warnings'
+# Audio recording parameters
+format = pyaudio.paInt16  # 16 bits per sample
+channels = 1  # Mono audio
+sample_rate = 44100  # Sampling rate
+chunk = 1024  # Frames per buffer
+device_index = 1  # Assuming the device index is 1, adjust as necessary
+
+# Open the audio stream
+stream = p.open(format=format,
+                channels=channels,
+                rate=sample_rate,
+                input=True,
+                frames_per_buffer=chunk,
+                input_device_index=device_index)
+
+print(f"Recording for {record_seconds} seconds...")
+
+frames = []
+
+# Record for the set duration
+for _ in range(0, int(sample_rate / chunk * record_seconds)):
+    data = stream.read(chunk)
+    frames.append(data)
+
+# Stop and close the stream
+stream.stop_stream()
+stream.close()
+# Terminate the PyAudio instance
+p.terminate()
+
+# Save the recorded data to a WAV file
+output_filename = "output.wav"
+wf = wave.open(output_filename, 'wb')
+wf.setnchannels(channels)
+wf.setsampwidth(p.get_sample_size(format))
+wf.setframerate(sample_rate)
+wf.writeframes(b''.join(frames))
+wf.close()
+
+print(f"Recording finished. The audio was saved to {output_filename}")

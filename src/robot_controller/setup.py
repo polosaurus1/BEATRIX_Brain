@@ -25,7 +25,8 @@ setup(
             "pose_subsciber = robot_controller.pose_subscriber:main",
             "turtle_controller = robot_controller.turtle_controller:main",
             "camera_control = robot_controller.camera:main",
-            "test_node1 = robot_controller.face_command_subscriber:main"
+            "face_controller = robot_controller.face_command_subscriber:main",
+            "gui = robot_controller.gui:main"
         ],
     },
 )

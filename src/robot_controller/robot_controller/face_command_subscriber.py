@@ -28,6 +28,7 @@ class FaceCommandSubscriber(Node):
         self.ser.write(b'@ENMOTORS ON\r')
         time.sleep(1)
         self.ser.write(b'@CALNOW\r')
+        time.sleep(1)
 
     def listener_callback(self, msg):
         # Parse the received message
@@ -47,7 +48,7 @@ class FaceCommandSubscriber(Node):
             
             self.get_logger().info(f'Sending command to Arduino: {command.decode()}')
             self.ser.write(command)
-            time.sleep(2)  # Delay before sending the next command
+            time.sleep(1)  # Delay before sending the next command
         else:
             self.get_logger().info('No face detected. No command sent.')
 
@@ -57,7 +58,7 @@ def main(args=None):
     face_command_subscriber = FaceCommandSubscriber()
     try:
         rclpy.spin(face_command_subscriber)
-    except KeyboardInterrupt:
+    except:
         face_command_subscriber.ser.write(b'@ENMOTORS OFF\r')
         
         # Clean up
