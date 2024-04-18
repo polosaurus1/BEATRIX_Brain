@@ -1,0 +1,38 @@
+[1.466s] Invoking command in '/root/workspace/src/build/robot_controller': PYTHONPATH=/root/workspace/src/build/robot_controller/prefix_override:/root/workspace/src/install/robot_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /root/workspace/src/build/robot_controller/build --no-deps symlink_data
+[1.929s] running develop
+[1.931s] /env/lib/python3.10/site-packages/setuptools/command/develop.py:40: EasyInstallDeprecationWarning: easy_install command is deprecated.
+[1.931s] !!
+[1.931s] 
+[1.931s]         ********************************************************************************
+[1.931s]         Please avoid running ``setup.py`` and ``easy_install``.
+[1.931s]         Instead, use pypa/build, pypa/installer or other
+[1.932s]         standards-based tools.
+[1.932s] 
+[1.933s]         See https://github.com/pypa/setuptools/issues/917 for details.
+[1.933s]         ********************************************************************************
+[1.933s] 
+[1.933s] !!
+[1.933s]   easy_install.initialize_options(self)
+[2.165s] running egg_info
+[2.179s] writing robot_controller.egg-info/PKG-INFO
+[2.180s] writing dependency_links to robot_controller.egg-info/dependency_links.txt
+[2.181s] writing entry points to robot_controller.egg-info/entry_points.txt
+[2.181s] writing requirements to robot_controller.egg-info/requires.txt
+[2.181s] writing top-level names to robot_controller.egg-info/top_level.txt
+[2.212s] reading manifest file 'robot_controller.egg-info/SOURCES.txt'
+[2.214s] writing manifest file 'robot_controller.egg-info/SOURCES.txt'
+[2.249s] running build_ext
+[2.249s] Creating /root/workspace/src/install/robot_controller/lib/python3.10/site-packages/robot-controller.egg-link (link to .)
+[2.251s] Installing camera_control script to /root/workspace/src/install/robot_controller/lib/robot_controller
+[2.252s] Installing draw_circle script to /root/workspace/src/install/robot_controller/lib/robot_controller
+[2.252s] Installing face_controller script to /root/workspace/src/install/robot_controller/lib/robot_controller
+[2.253s] Installing gui script to /root/workspace/src/install/robot_controller/lib/robot_controller
+[2.253s] Installing pose_subsciber script to /root/workspace/src/install/robot_controller/lib/robot_controller
+[2.253s] Installing sound script to /root/workspace/src/install/robot_controller/lib/robot_controller
+[2.253s] Installing speech script to /root/workspace/src/install/robot_controller/lib/robot_controller
+[2.254s] Installing test_node script to /root/workspace/src/install/robot_controller/lib/robot_controller
+[2.254s] Installing turtle_controller script to /root/workspace/src/install/robot_controller/lib/robot_controller
+[2.255s] 
+[2.255s] Installed /root/workspace/src/build/robot_controller
+[2.255s] running symlink_data
+[2.381s] Invoked command in '/root/workspace/src/build/robot_controller' returned '0': PYTHONPATH=/root/workspace/src/build/robot_controller/prefix_override:/root/workspace/src/install/robot_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /root/workspace/src/build/robot_controller/build --no-deps symlink_data

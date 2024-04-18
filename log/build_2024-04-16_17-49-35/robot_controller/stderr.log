@@ -1,0 +1,3 @@
+/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+error: [Errno 17] File exists: '/home/beatrix/ws/src/build/robot_controller/resource/robot_controller' -> '/home/beatrix/ws/src/install/robot_controller/share/ament_index/resource_index/packages/robot_controller'

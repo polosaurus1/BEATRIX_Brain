@@ -1,10 +1,12 @@
+#!/usr/bin/env python3
+
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
 import numpy as np
 import sounddevice as sd
 from scipy.signal import correlate
-import time  # Make sure time is imported correctly
+import time 
 
 fs = 44100  # Sample rate
 chunk_duration = 2  # Chunk duration in seconds

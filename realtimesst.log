@@ -1,0 +1,18 @@
+RealTimeSTT: root - ERROR - Error initializing pyaudio audio recording: [Errno -9997] Invalid sample rate
+Traceback (most recent call last):
+  File "/env/lib/python3.10/site-packages/RealtimeSTT/audio_recorder.py", line 700, in _audio_data_worker
+    stream = audio_interface.open(
+  File "/env/lib/python3.10/site-packages/pyaudio/__init__.py", line 639, in open
+    stream = PyAudio.Stream(self, *args, **kwargs)
+  File "/env/lib/python3.10/site-packages/pyaudio/__init__.py", line 441, in __init__
+    self._stream = pa.open(**arguments)
+OSError: [Errno -9997] Invalid sample rate
+RealTimeSTT: root - ERROR - Error initializing pyaudio audio recording: [Errno -9997] Invalid sample rate
+Traceback (most recent call last):
+  File "/env/lib/python3.10/site-packages/RealtimeSTT/audio_recorder.py", line 700, in _audio_data_worker
+    stream = audio_interface.open(
+  File "/env/lib/python3.10/site-packages/pyaudio/__init__.py", line 639, in open
+    stream = PyAudio.Stream(self, *args, **kwargs)
+  File "/env/lib/python3.10/site-packages/pyaudio/__init__.py", line 441, in __init__
+    self._stream = pa.open(**arguments)
+OSError: [Errno -9997] Invalid sample rate

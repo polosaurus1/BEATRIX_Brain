@@ -72,6 +72,30 @@ class DirectionListener(Node):
             return
         self.serial_connection.write(command)
         
+class VoiceCommandListener(Node):
+    def __init__(self, main_window):
+        super().__init__('voice_command_listener')
+        self.main_window = main_window
+        self.subscription = self.create_subscription(
+            String,
+            'recognized_speech',  # Ensure this is the correct topic where voice commands are published
+            self.voice_command_callback,
+            10)
+        self.get_logger().info('Voice command listener subscribed.')
+
+    def voice_command_callback(self, msg):
+        command = msg.data.lower().strip()  # Ensure commands are processed in lowercase and stripped of whitespace
+        self.get_logger().info(f'Received voice command: "{command}"')  # Log received commands for debugging
+        if command == "up":
+            self.main_window.send_movement_command(0, 200)
+        elif command == "down":
+            self.main_window.send_movement_command(0, -200)
+        elif command == "left":
+            self.main_window.send_movement_command(-200, 0)
+        elif command == "right":
+            self.main_window.send_movement_command(200, 0)
+        else:
+            self.get_logger().info(f"Unknown command received: {command}")                                       
 
 class MainWindow(QWidget):
     def __init__(self, node):
@@ -80,7 +104,9 @@ class MainWindow(QWidget):
         self.setWindowTitle("ROS 2 Camera Feed Viewer")
         
         self.layout = QVBoxLayout(self)
-        
+
+        # Initialize the ROS 2 executor first
+        self.executor = rclpy.executors.SingleThreadedExecutor()
         # Image label for displaying camera feed
         self.image_label = QLabel(self)
         self.layout.addWidget(self.image_label)
@@ -89,15 +115,33 @@ class MainWindow(QWidget):
         self.ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
         time.sleep(2)  # Wait for connection to establish
         
-        # Listening process handle
+        # Initialize process handles to None
+        self.speech_process = None
         self.listening_process = None
+
+        # Initialize listeners and add them to the executor
         self.direction_listener = DirectionListener(self.ser)
+        self.voice_command_listener = VoiceCommandListener(self)
+        self.executor.add_node(self.direction_listener)
+        self.executor.add_node(self.voice_command_listener)
+
+        # Start the executor in a separate thread
+        self.spin_thread = Thread(target=self.spin_ros_node, daemon=True)
+        self.spin_thread.start()
+
+        # GUI components setup
+        self.setup_gui_components()
         
+    def setup_gui_components(self):
         # Button to toggle audio direction detection
         self.toggle_audio_button = QPushButton("Enable Listening")
         self.toggle_audio_button.clicked.connect(self.toggle_audio_detection)
         self.layout.addWidget(self.toggle_audio_button)
         
+        # Button to toggle speech recognition
+        self.toggle_speech_button = QPushButton("Enable Speech Recognition")
+        self.toggle_speech_button.clicked.connect(self.toggle_speech_recognition)
+        self.layout.addWidget(self.toggle_speech_button)
         
         # ROS 2 executor to spin the node in a separate thread
         self.executor = rclpy.executors.SingleThreadedExecutor()
@@ -258,6 +302,22 @@ class MainWindow(QWidget):
             os.killpg(os.getpgid(self.listening_process.pid), signal.SIGTERM)
             self.listening_process = None
             self.toggle_audio_button.setText("Enable Listening")
+            
+    def toggle_speech_recognition(self):
+        """Toggle the speech recognition ROS 2 node."""
+        if self.speech_process is None:
+            # Start the speech recognition process
+            self.speech_process = subprocess.Popen(
+                ["ros2", "run", "robot_controller", "speech"], preexec_fn=os.setsid)
+            self.toggle_speech_button.setText("Disable Speech Recognition")
+            self.node.get_logger().info('Speech recognition enabled.')
+        else:
+            # Stop the speech recognition process
+            os.killpg(os.getpgid(self.speech_process.pid), signal.SIGTERM)
+            self.speech_process.wait()  # Wait for the process to terminate
+            self.speech_process = None
+            self.toggle_speech_button.setText("Enable Speech Recognition")
+            self.node.get_logger().info('Speech recognition disabled.')
 
     def spin_ros_node(self):
         # Spin ROS 2 node in a separate thread to avoid blocking the GUI

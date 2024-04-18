@@ -1,0 +1,67 @@
+[0.659s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'list', '-p', '--base-paths', '/root/workspace']
+[0.659s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='list', build_base='build', ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['/root/workspace'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, topological_order=False, names_only=False, paths_only=True, topological_graph=False, topological_graph_dot=False, topological_graph_density=False, topological_graph_legend=False, topological_graph_dot_cluster=False, topological_graph_dot_include_skipped=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0xffffb98bc310>, verb_extension=<colcon_package_information.verb.list.ListVerb object at 0xffffb9883280>, main=<bound method ListVerb.main of <colcon_package_information.verb.list.ListVerb object at 0xffffb9883280>>, mixin_verb=('list',))
+[1.211s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[1.214s] INFO:colcon.colcon_metadata.package_discovery.colcon_meta:Using configuration from '/root/.colcon/metadata/default/Gazebo.meta'
+[1.216s] INFO:colcon.colcon_metadata.package_discovery.colcon_meta:Using configuration from '/root/.colcon/metadata/default/fastrtps.meta'
+[1.217s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[1.217s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[1.218s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[1.218s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[1.219s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/root/workspace'
+[1.221s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace) by extensions ['ignore', 'ignore_ament_install']
+[1.223s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace) by extension 'ignore'
+[1.224s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace) by extension 'ignore_ament_install'
+[1.224s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace) by extensions ['colcon_pkg']
+[1.225s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace) by extension 'colcon_pkg'
+[1.225s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace) by extensions ['colcon_meta']
+[1.226s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace) by extension 'colcon_meta'
+[1.226s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace) by extensions ['ros']
+[1.231s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace) by extension 'ros'
+[1.314s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace) by extensions ['cmake', 'python']
+[1.314s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace) by extension 'cmake'
+[1.315s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace) by extension 'python'
+[1.316s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace) by extensions ['python_setup_py']
+[1.317s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace) by extension 'python_setup_py'
+[1.323s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/build) by extensions ['ignore', 'ignore_ament_install']
+[1.324s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/build) by extension 'ignore'
+[1.324s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/build) ignored
+[1.325s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/install) by extensions ['ignore', 'ignore_ament_install']
+[1.326s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/install) by extension 'ignore'
+[1.326s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/install) ignored
+[1.327s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/log) by extensions ['ignore', 'ignore_ament_install']
+[1.328s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/log) by extension 'ignore'
+[1.328s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/log) ignored
+[1.329s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src) by extensions ['ignore', 'ignore_ament_install']
+[1.330s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src) by extension 'ignore'
+[1.330s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src) by extension 'ignore_ament_install'
+[1.331s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src) by extensions ['colcon_pkg']
+[1.331s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src) by extension 'colcon_pkg'
+[1.332s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src) by extensions ['colcon_meta']
+[1.332s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src) by extension 'colcon_meta'
+[1.333s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src) by extensions ['ros']
+[1.333s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src) by extension 'ros'
+[1.334s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src) by extensions ['cmake', 'python']
+[1.334s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src) by extension 'cmake'
+[1.335s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src) by extension 'python'
+[1.340s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src) by extensions ['python_setup_py']
+[1.341s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src) by extension 'python_setup_py'
+[1.343s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src/build) by extensions ['ignore', 'ignore_ament_install']
+[1.346s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src/build) by extension 'ignore'
+[1.347s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src/build) ignored
+[1.352s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src/install) by extensions ['ignore', 'ignore_ament_install']
+[1.352s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src/install) by extension 'ignore'
+[1.353s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src/install) ignored
+[1.354s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src/log) by extensions ['ignore', 'ignore_ament_install']
+[1.360s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src/log) by extension 'ignore'
+[1.361s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src/log) ignored
+[1.363s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src/robot_controller) by extensions ['ignore', 'ignore_ament_install']
+[1.364s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src/robot_controller) by extension 'ignore'
+[1.376s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src/robot_controller) by extension 'ignore_ament_install'
+[1.377s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src/robot_controller) by extensions ['colcon_pkg']
+[1.378s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src/robot_controller) by extension 'colcon_pkg'
+[1.380s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src/robot_controller) by extensions ['colcon_meta']
+[1.381s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src/robot_controller) by extension 'colcon_meta'
+[1.382s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src/robot_controller) by extensions ['ros']
+[1.382s] Level 1:colcon.colcon_core.package_identification:_identify(/root/workspace/src/robot_controller) by extension 'ros'
+[1.400s] DEBUG:colcon.colcon_core.package_identification:Package '/root/workspace/src/robot_controller' with type 'ros.ament_python' and name 'robot_controller'
+[1.402s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults

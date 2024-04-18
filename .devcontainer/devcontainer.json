@@ -1,0 +1,42 @@
+{
+    "name": "ROS 2 Development Container",
+    "privileged": true,
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "workspaceFolder": "/root/workspace",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/root/workspace,type=bind,consistency=cached",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cpptools-themes",
+                "twxs.cmake",
+                "donjayamanne.python-extension-pack",
+                "eamodio.gitlens",
+                "ms-iot.vscode-ros",
+                "vsciot-vscode.vscode-arduino"
+            ]
+        }
+    },
+    "containerEnv": {
+        "DISPLAY": "unix:0",
+        "ROS_LOCALHOST_ONLY": "1",
+        "ROS_DOMAIN_ID": "42"
+    },
+    "runArgs": [
+        "--net=host",
+        "-e", "DISPLAY=${env:DISPLAY}",
+        "--privileged",
+        "--device=/dev/ttyACM0",
+        "--device=/dev/snd",
+        "-v", "/dev/dri:/dev/dri"
+    ],
+    "mounts": [
+        "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
+        "source=${localWorkspaceFolder}/build,target=/root/workspace/build,type=bind",
+        "source=${localWorkspaceFolder}/install,target=/root/workspace/install,type=bind",
+        "source=${localWorkspaceFolder}/log,target=/root/workspace/log,type=bind"
+    ],
+    "postCreateCommand": "rosdep update && rosdep install --from-paths src --ignore-src -r -y"
+}

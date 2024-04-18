@@ -1,0 +1,32 @@
+[1.319s] Invoking command in '/home/beatrix/ws/src/src/build/robot_controller': PYTHONPATH=/home/beatrix/ws/src/src/build/robot_controller/prefix_override:/home/beatrix/ws/src/src/install/robot_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/beatrix/ws/src/src/build/robot_controller/build --no-deps symlink_data
+[1.787s] running develop
+[1.789s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[1.789s]   warnings.warn(
+[2.039s] running egg_info
+[2.040s] creating robot_controller.egg-info
+[2.040s] writing robot_controller.egg-info/PKG-INFO
+[2.040s] writing dependency_links to robot_controller.egg-info/dependency_links.txt
+[2.040s] writing entry points to robot_controller.egg-info/entry_points.txt
+[2.041s] writing requirements to robot_controller.egg-info/requires.txt
+[2.041s] writing top-level names to robot_controller.egg-info/top_level.txt
+[2.041s] writing manifest file 'robot_controller.egg-info/SOURCES.txt'
+[2.050s] reading manifest file 'robot_controller.egg-info/SOURCES.txt'
+[2.050s] writing manifest file 'robot_controller.egg-info/SOURCES.txt'
+[2.054s] running build_ext
+[2.055s] Creating /home/beatrix/ws/src/src/install/robot_controller/lib/python3.10/site-packages/robot-controller.egg-link (link to .)
+[2.058s] Installing camera_control script to /home/beatrix/ws/src/src/install/robot_controller/lib/robot_controller
+[2.058s] Installing draw_circle script to /home/beatrix/ws/src/src/install/robot_controller/lib/robot_controller
+[2.060s] Installing face_controller script to /home/beatrix/ws/src/src/install/robot_controller/lib/robot_controller
+[2.061s] Installing gui script to /home/beatrix/ws/src/src/install/robot_controller/lib/robot_controller
+[2.061s] Installing pose_subsciber script to /home/beatrix/ws/src/src/install/robot_controller/lib/robot_controller
+[2.061s] Installing test_node script to /home/beatrix/ws/src/src/install/robot_controller/lib/robot_controller
+[2.061s] Installing turtle_controller script to /home/beatrix/ws/src/src/install/robot_controller/lib/robot_controller
+[2.061s] 
+[2.061s] Installed /home/beatrix/ws/src/src/build/robot_controller
+[2.062s] running symlink_data
+[2.062s] creating /home/beatrix/ws/src/src/install/robot_controller/share/ament_index
+[2.062s] creating /home/beatrix/ws/src/src/install/robot_controller/share/ament_index/resource_index
+[2.062s] creating /home/beatrix/ws/src/src/install/robot_controller/share/ament_index/resource_index/packages
+[2.063s] symbolically linking /home/beatrix/ws/src/src/build/robot_controller/resource/robot_controller -> /home/beatrix/ws/src/src/install/robot_controller/share/ament_index/resource_index/packages
+[2.063s] symbolically linking /home/beatrix/ws/src/src/build/robot_controller/package.xml -> /home/beatrix/ws/src/src/install/robot_controller/share/robot_controller
+[2.163s] Invoked command in '/home/beatrix/ws/src/src/build/robot_controller' returned '0': PYTHONPATH=/home/beatrix/ws/src/src/build/robot_controller/prefix_override:/home/beatrix/ws/src/src/install/robot_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/beatrix/ws/src/src/build/robot_controller/build --no-deps symlink_data

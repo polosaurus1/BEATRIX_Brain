@@ -1,0 +1,51 @@
+{
+    "python.defaultInterpreterPath": "/env/bin/python3", // Path to the Python interpreter
+    "python.analysis.extraPaths": [
+        "/env/lib/python3.10/site-packages", // Ensures IntelliSense discovers installed packages
+        "/opt/ros/humble/lib/python3.10/site-packages", // ROS 2 packages
+        "/root/workspace/install/robot_controller/lib/python3.10/site-packages", // Custom packages from your ROS 2 workspace
+        "/home/beatrix/ws/src/src/build/robot_controller",
+        "/root/workspace/install/robot_controller/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.autoComplete.extraPaths": [
+        "/env/lib/python3.10/site-packages", // Duplicate for auto-completion
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/root/workspace/install/robot_controller/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages",
+        "/home/beatrix/ws/src/src/build/robot_controller"
+    ],
+    "python.linting.enabled": true, // Enables linting
+    "python.linting.pylintEnabled": true, // Enables pylint as the linter
+    "python.linting.pylintArgs": [ // Custom arguments for pylint
+        "--load-plugins=pylint_ros",
+        "--disable=C0111" // Example to disable a specific warning, customize as needed
+    ],
+    "files.exclude": { // Hides files and directories from the explorer
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/__pycache__": true,
+        "**/*.pyc": true
+    },
+    "editor.formatOnSave": true, // Automatically format files on save
+    "terminal.integrated.env.linux": { // Set environment variables for integrated terminal
+        "PYTHONPATH": "/env/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages"
+    },
+    "workbench.colorTheme": "Visual Studio Dark", // Example to set a theme, change as per your preference
+    "python.testing.unittestEnabled": true, // Enable unittesting
+    "python.testing.pytestEnabled": true, // Enable pytest
+    "python.testing.nosetestsEnabled": false, // Disable nose tests if not used
+    "python.testing.pytestArgs": [ // Configure pytest arguments
+        "tests"
+    ],
+    "python.testing.unittestArgs": [ // Configure unittest arguments
+        "-v",
+        "-s",
+        "./tests",
+        "-p",
+        "*_test.py"
+    ]
+}

@@ -44,11 +44,11 @@ class FaceCommandSubscriber(Node):
             movement_y = -offset_y
             
             # Prepare command with calculated movement
-            command = f'@MOVRALL {movement_x-movement_y} {int(movement_x+(0.5)* movement_y)} {movement_x} 200 200 200\r'.encode('utf-8')
+            command = f'@MOVRALL {movement_x-movement_y} {movement_x+ movement_y} {movement_x} 200 200 200\r'.encode('utf-8')
             
             self.get_logger().info(f'Sending command to Arduino: {command.decode()}')
             self.ser.write(command)
-            time.sleep(1)  # Delay before sending the next command
+            time.sleep(3)  # Delay before sending the next command
         else:
             self.get_logger().info('No face detected. No command sent.')
 

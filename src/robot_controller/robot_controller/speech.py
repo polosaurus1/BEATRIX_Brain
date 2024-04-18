@@ -1,76 +1,59 @@
+import rclpy
+from rclpy.node import Node
 import sounddevice as sd
 import numpy as np
-import wave
 import speech_recognition as sr
 import threading
-import time
-import io
 import queue
+from std_msgs.msg import String
 
-def record_audio_continuous(queue, fs=44100, channels=2, dtype='int16', buffer_duration=2):
-    """Continuously record audio from the microphone and put chunks into a queue with overlapping segments."""
-    overlap_duration = 0.5  # 0.5 seconds of overlap
-    frame_overlap = int(fs * overlap_duration)
-    frame_buffer_duration = buffer_duration + overlap_duration
-    frame_buffer_size = int(fs * frame_buffer_duration)  # total buffer size including overlap
+class SpeechRecognitionNode(Node):
+    def __init__(self):
+        super().__init__('speech_recognition_node')
+        self.audio_queue = queue.Queue()
+        self.recognizer = sr.Recognizer()
+        self.publisher_ = self.create_publisher(String, 'recognized_speech', 10)
 
-    with sd.InputStream(samplerate=fs, channels=channels, dtype=dtype) as stream:
-        # Initialize prev_data correctly based on number of channels
-        prev_data = np.zeros((frame_overlap, channels), dtype=dtype)
-        while True:
-            data, overflowed = stream.read(frame_buffer_size)
-            if overflowed:
-                print("Audio buffer has overflowed.")
-            
-            # Combine previous data (overlap) with current data
-            combined_data = np.concatenate((prev_data, data))
-            queue.put(combined_data)
+        self.recording_thread = threading.Thread(target=self.record_audio_continuous)
+        self.recording_thread.start()
 
-            # Store the last part of this buffer to overlap with the next one
-            prev_data = data[-frame_overlap:]
+        self.fs = 44100  # Sample rate
+        self.listen_in_background()
 
-def process_audio_from_queue(queue, recognizer, fs=44100, channels=2):
-    """Process audio chunks from the queue and perform speech recognition."""
-    while True:
-        if not queue.empty():
-            data = queue.get()
-            audio_data = np.frombuffer(data, dtype=np.int16)
-            with io.BytesIO() as buffer:
-                with wave.open(buffer, 'wb') as wf:
-                    wf.setnchannels(channels)
-                    wf.setsampwidth(2)
-                    wf.setframerate(fs)
-                    wf.writeframes(audio_data.tobytes())
-                buffer.seek(0)
-                with sr.AudioFile(buffer) as source:
-                    audio = recognizer.record(source)
-                    try:
-                        text = recognizer.recognize_google(audio)
-                        print(f"Recognized Speech: {text}")
-                    except sr.UnknownValueError:
-                        print("Could not understand audio")
-                    except sr.RequestError as e:
-                        print(f"Could not request results from speech recognition service; {e}")
-        time.sleep(1)  # Check the queue every second
+    def record_audio_continuous(self):
+        with sd.InputStream(channels=1, dtype='int16') as stream:
+            while rclpy.ok():
+                data, overflowed = stream.read(int(44100 * 20))
+                if overflowed:
+                    self.get_logger().info('Audio buffer has overflowed.')
+                self.audio_queue.put(data)
 
-def main():
-    fs = 44100  # Sample rate
-    audio_queue = queue.Queue()
-    recognizer = sr.Recognizer()
+    def callback(self, recognizer, audio):
+        try:
+            text = recognizer.recognize_google(audio)
+            self.get_logger().info(f'Recognized Speech: {text}')
+            msg = String()
+            msg.data = text
+            self.publisher_.publish(msg)
+        except sr.UnknownValueError:
+            self.get_logger().info('Google Speech Recognition could not understand audio')
+        except sr.RequestError as e:
+            self.get_logger().info(f'Could not request results from Google Speech Recognition service; {e}')
 
-    # Start the recording thread
-    recording_thread = threading.Thread(target=record_audio_continuous, args=(audio_queue, fs))
-    recording_thread.start()
+    def listen_in_background(self):
+        self.recognizer.listen_in_background(sr.Microphone(), self.callback, phrase_time_limit=3)
 
-    # Start the processing thread
-    processing_thread = threading.Thread(target=process_audio_from_queue, args=(audio_queue, recognizer, fs))
-    processing_thread.start()
+def main(args=None):
+    rclpy.init(args=args)
+    speech_recognition_node = SpeechRecognitionNode()
 
     try:
-        recording_thread.join()
-        processing_thread.join()
+        rclpy.spin(speech_recognition_node)
     except KeyboardInterrupt:
-        print("Program terminated by user.")
+        print('Program terminated by user.')
+    finally:
+        speech_recognition_node.destroy_node()
+        rclpy.shutdown()
 
 if __name__ == '__main__':
     main()

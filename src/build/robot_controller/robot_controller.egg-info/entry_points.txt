@@ -1,0 +1,10 @@
+[console_scripts]
+camera_control = robot_controller.camera:main
+draw_circle = robot_controller.draw_circle:main
+face_controller = robot_controller.face_command_subscriber:main
+gui = robot_controller.gui:main
+pose_subsciber = robot_controller.pose_subscriber:main
+sound = robot_controller.audio:main
+speech = robot_controller.speech:main
+test_node = robot_controller.my_first_node:main
+turtle_controller = robot_controller.turtle_controller:main

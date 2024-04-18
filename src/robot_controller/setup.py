@@ -26,7 +26,9 @@ setup(
             "turtle_controller = robot_controller.turtle_controller:main",
             "camera_control = robot_controller.camera:main",
             "face_controller = robot_controller.face_command_subscriber:main",
-            "gui = robot_controller.gui:main"
+            "gui = robot_controller.gui:main",
+            "sound = robot_controller.audio:main",
+            "speech = robot_controller.speech:main" 
         ],
     },
 )

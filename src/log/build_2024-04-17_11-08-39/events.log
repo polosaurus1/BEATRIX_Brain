@@ -1,0 +1,66 @@
+[0.000000] (-) TimerEvent: {}
+[0.000448] (robot_controller) JobQueued: {'identifier': 'robot_controller', 'dependencies': OrderedDict()}
+[0.000819] (robot_controller) JobStarted: {'identifier': 'robot_controller'}
+[0.099684] (-) TimerEvent: {}
+[0.200380] (-) TimerEvent: {}
+[0.301092] (-) TimerEvent: {}
+[0.401909] (-) TimerEvent: {}
+[0.509138] (-) TimerEvent: {}
+[0.612357] (-) TimerEvent: {}
+[0.712974] (-) TimerEvent: {}
+[0.813845] (-) TimerEvent: {}
+[0.914388] (-) TimerEvent: {}
+[1.015003] (-) TimerEvent: {}
+[1.115580] (-) TimerEvent: {}
+[1.215965] (-) TimerEvent: {}
+[1.316349] (-) TimerEvent: {}
+[1.416806] (-) TimerEvent: {}
+[1.510660] (robot_controller) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/root/workspace/src/build/robot_controller/build', '--no-deps', 'symlink_data'], 'cwd': '/root/workspace/src/build/robot_controller', 'env': {'HOSTNAME': 'Beatrix-Brain', 'GIT_ASKPASS': '/vscode/vscode-server/bin/linux-arm64/903b1e9d8990623e3d7da1df3d33db3e42d80eda/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib', 'BROWSER': '/vscode/vscode-server/bin/linux-arm64/903b1e9d8990623e3d7da1df3d33db3e42d80eda/bin/helpers/browser.sh', 'HOME': '/root', 'OLDPWD': '/root/workspace', 'TERM_PROGRAM_VERSION': '1.86.2', 'VSCODE_IPC_HOOK_CLI': '/tmp/vscode-ipc-0517c91b-2b1f-4ac4-9217-037f50166fee.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/vscode/vscode-server/bin/linux-arm64/903b1e9d8990623e3d7da1df3d33db3e42d80eda/extensions/git/dist/askpass-main.js', 'PS1': '\\[\x1b]633;A\x07\\]env(env) \\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\u@\\h:\\w\\$ \\[\x1b]633;B\x07\\]', 'VSCODE_GIT_ASKPASS_NODE': '/vscode/vscode-server/bin/linux-arm64/903b1e9d8990623e3d7da1df3d33db3e42d80eda/node', 'COLORTERM': 'truecolor', 'REMOTE_CONTAINERS': 'true', 'WAYLAND_DISPLAY': 'vscode-wayland-721a0f50-447e-4d8f-af62-c62bc3c76501.sock', 'COLCON_PREFIX_PATH': '/root/workspace/src/install', 'ROS_DISTRO': 'humble', 'REMOTE_CONTAINERS_IPC': '/tmp/vscode-remote-containers-ipc-39de710f-69cb-4930-8418-da12a504bf9c.sock', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', 'ROS_LOCALHOST_ONLY': '1', 'PATH': '/root/.vscode-server/extensions/ms-python.python-2024.4.1/python_files/deactivate/bash:/env/bin:/env/bin:/root/.vscode-server/extensions/ms-python.python-2024.4.1/python_files/deactivate/bash:/env/bin:/vscode/vscode-server/bin/linux-arm64/903b1e9d8990623e3d7da1df3d33db3e42d80eda/bin/remote-cli:/env/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'XDG_RUNTIME_DIR': '/tmp/user/0', 'REMOTE_CONTAINERS_SOCKETS': '["/tmp/vscode-ssh-auth-39de710f-69cb-4930-8418-da12a504bf9c.sock","/tmp/.X11-unix/X5","/root/.gnupg/S.gpg-agent"]', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'PYTHONSTARTUP': '/root/.vscode-server/extensions/ms-python.python-2024.4.1/python_files/pythonrc.py', 'VIRTUAL_ENV_PROMPT': 'env', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/tmp/user/0/vscode-git-ddc72b5f1f.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/tmp/vscode-ssh-auth-39de710f-69cb-4930-8418-da12a504bf9c.sock', 'ROS_DOMAIN_ID': '42', 'AMENT_PREFIX_PATH': '/root/workspace/src/install/robot_controller:/opt/ros/humble', 'REMOTE_CONTAINERS_DISPLAY_SOCK': '/tmp/.X11-unix/X5', 'SHELL': '/bin/bash', 'VIRTUAL_ENV': '/env', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/root/workspace/src/build/robot_controller', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/root/workspace/src/build/robot_controller/prefix_override:/root/workspace/src/install/robot_controller/lib/python3.10/site-packages:/root/workspace/src/build/robot_controller:/root/workspace/src/install/robot_controller/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages:/env/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages', 'COLCON': '1'}, 'shell': False}
+[1.516943] (-) TimerEvent: {}
+[1.617470] (-) TimerEvent: {}
+[1.717903] (-) TimerEvent: {}
+[1.818297] (-) TimerEvent: {}
+[1.918684] (-) TimerEvent: {}
+[1.973385] (robot_controller) StdoutLine: {'line': b'running develop\n'}
+[1.973992] (robot_controller) StderrLine: {'line': b'/env/lib/python3.10/site-packages/setuptools/command/develop.py:40: EasyInstallDeprecationWarning: easy_install command is deprecated.\n'}
+[1.974157] (robot_controller) StderrLine: {'line': b'!!\n'}
+[1.974246] (robot_controller) StderrLine: {'line': b'\n'}
+[1.974325] (robot_controller) StderrLine: {'line': b'        ********************************************************************************\n'}
+[1.974401] (robot_controller) StderrLine: {'line': b'        Please avoid running ``setup.py`` and ``easy_install``.\n'}
+[1.974477] (robot_controller) StderrLine: {'line': b'        Instead, use pypa/build, pypa/installer or other\n'}
+[1.974551] (robot_controller) StderrLine: {'line': b'        standards-based tools.\n'}
+[1.974624] (robot_controller) StderrLine: {'line': b'\n'}
+[1.974694] (robot_controller) StderrLine: {'line': b'        See https://github.com/pypa/setuptools/issues/917 for details.\n'}
+[1.974768] (robot_controller) StderrLine: {'line': b'        ********************************************************************************\n'}
+[1.974839] (robot_controller) StderrLine: {'line': b'\n'}
+[1.974909] (robot_controller) StderrLine: {'line': b'!!\n'}
+[1.974978] (robot_controller) StderrLine: {'line': b'  easy_install.initialize_options(self)\n'}
+[2.018790] (-) TimerEvent: {}
+[2.119182] (-) TimerEvent: {}
+[2.185938] (robot_controller) StdoutLine: {'line': b'running egg_info\n'}
+[2.199570] (robot_controller) StdoutLine: {'line': b'writing robot_controller.egg-info/PKG-INFO\n'}
+[2.200426] (robot_controller) StdoutLine: {'line': b'writing dependency_links to robot_controller.egg-info/dependency_links.txt\n'}
+[2.201250] (robot_controller) StdoutLine: {'line': b'writing entry points to robot_controller.egg-info/entry_points.txt\n'}
+[2.201799] (robot_controller) StdoutLine: {'line': b'writing requirements to robot_controller.egg-info/requires.txt\n'}
+[2.202074] (robot_controller) StdoutLine: {'line': b'writing top-level names to robot_controller.egg-info/top_level.txt\n'}
+[2.219292] (-) TimerEvent: {}
+[2.232238] (robot_controller) StdoutLine: {'line': b"reading manifest file 'robot_controller.egg-info/SOURCES.txt'\n"}
+[2.234628] (robot_controller) StdoutLine: {'line': b"writing manifest file 'robot_controller.egg-info/SOURCES.txt'\n"}
+[2.261332] (robot_controller) StdoutLine: {'line': b'running build_ext\n'}
+[2.261842] (robot_controller) StdoutLine: {'line': b'Creating /root/workspace/src/install/robot_controller/lib/python3.10/site-packages/robot-controller.egg-link (link to .)\n'}
+[2.263756] (robot_controller) StdoutLine: {'line': b'Installing camera_control script to /root/workspace/src/install/robot_controller/lib/robot_controller\n'}
+[2.264242] (robot_controller) StdoutLine: {'line': b'Installing draw_circle script to /root/workspace/src/install/robot_controller/lib/robot_controller\n'}
+[2.264488] (robot_controller) StdoutLine: {'line': b'Installing face_controller script to /root/workspace/src/install/robot_controller/lib/robot_controller\n'}
+[2.264726] (robot_controller) StdoutLine: {'line': b'Installing gui script to /root/workspace/src/install/robot_controller/lib/robot_controller\n'}
+[2.264949] (robot_controller) StdoutLine: {'line': b'Installing pose_subsciber script to /root/workspace/src/install/robot_controller/lib/robot_controller\n'}
+[2.265161] (robot_controller) StdoutLine: {'line': b'Installing sound script to /root/workspace/src/install/robot_controller/lib/robot_controller\n'}
+[2.265357] (robot_controller) StdoutLine: {'line': b'Installing speech script to /root/workspace/src/install/robot_controller/lib/robot_controller\n'}
+[2.265532] (robot_controller) StdoutLine: {'line': b'Installing test_node script to /root/workspace/src/install/robot_controller/lib/robot_controller\n'}
+[2.265725] (robot_controller) StdoutLine: {'line': b'Installing turtle_controller script to /root/workspace/src/install/robot_controller/lib/robot_controller\n'}
+[2.266142] (robot_controller) StdoutLine: {'line': b'\n'}
+[2.266226] (robot_controller) StdoutLine: {'line': b'Installed /root/workspace/src/build/robot_controller\n'}
+[2.266333] (robot_controller) StdoutLine: {'line': b'running symlink_data\n'}
+[2.319451] (-) TimerEvent: {}
+[2.383184] (robot_controller) CommandEnded: {'returncode': 0}
+[2.400295] (robot_controller) JobEnded: {'identifier': 'robot_controller', 'rc': 0}
+[2.401418] (-) EventReactorShutdown: {}
