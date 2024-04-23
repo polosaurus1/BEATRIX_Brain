@@ -341,7 +341,7 @@ def main(args=None):
     spin_thread = Thread(target=spin, daemon=True)
     spin_thread.start()
     
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
 
 if __name__ == '__main__':
     main()
